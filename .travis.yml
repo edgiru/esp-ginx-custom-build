@@ -21,7 +21,7 @@ before_install:
 - git clone --depth=50 --branch=master https://github.com/edgiru/esp-ginx.git edgiru/esp-ginx
 
 # dig in and modify those config files
-- cd nodemcu-firmware/app/include
+#- cd nodemcu-firmware/app/include
 
 # replace modules in user_modules.h by the selected ones
 - bash $TRAVIS_BUILD_DIR/set-modules.sh
@@ -41,7 +41,7 @@ before_install:
 # back to where we came from
 - cd $TRAVIS_BUILD_DIR
 
-- cd nodemcu-firmware
+- cd esp-ginx
 - ls -altr
 install:
 - tar -zxvf tools/esp-open-sdk.tar.gz
@@ -50,7 +50,7 @@ script:
 - make all
 - cd bin/
 - timestamp=$(date "+%Y-%m-%d-%H-%M-%S")
-- base_file_name="nodemcu-"$X_BRANCH"-"$X_NUMBER_OF_MODULES"-modules-"$timestamp
+- base_file_name="esp-ginx-"$X_BRANCH"-"$X_NUMBER_OF_MODULES"-modules-"$timestamp
 - file_name_float=$base_file_name"-float.bin"
 - srec_cat  -output ${file_name_float} -binary 0x00000.bin -binary -fill 0xff 0x00000 0x10000 0x10000.bin -binary -offset 0x10000
 - cd ../
@@ -63,9 +63,9 @@ script:
 after_success:
 - cd $TRAVIS_BUILD_DIR
 - pwd
-- cp "$TRAVIS_BUILD_DIR/nodemcu-firmware/bin/${file_name_float}" .
-- cp "$TRAVIS_BUILD_DIR/nodemcu-firmware/bin/${file_name_integer}" .
-- rm -fr "$TRAVIS_BUILD_DIR/nodemcu-firmware"
+#- cp "$TRAVIS_BUILD_DIR/nodemcu-firmware/bin/${file_name_float}" .
+#- cp "$TRAVIS_BUILD_DIR/nodemcu-firmware/bin/${file_name_integer}" .
+#- rm -fr "$TRAVIS_BUILD_DIR/nodemcu-firmware"
 - ls -al
 #- curl -T "{${file_name_float},${file_name_integer}}" -u ${FTP_USER}:${FTP_PASSWORD} --ftp-ssl -k ftp://
 #- wget -d -v 'http://nodemcu-build.com/hook.php?event=success&recipient='$X_EMAIL'&branch='$X_BRANCH'&modules='$X_MODULES'&artifacts='${file_name_float},${file_name_integer}
