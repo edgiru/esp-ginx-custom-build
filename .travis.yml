@@ -41,22 +41,36 @@ before_install:
 # back to where we came from
 - cd $TRAVIS_BUILD_DIR
 
-- cd esp-ginx
+- ls -l
+
+- cd edgiru/esp-ginx
 - ls -altr
 install:
 - tar -zxvf tools/esp-open-sdk.tar.gz
 - export PATH=$PATH:$PWD/esp-open-sdk/sdk:$PWD/esp-open-sdk/xtensa-lx106-elf/bin
 script:
 - make all
+
+- ls -l
+
 - cd bin/
 - timestamp=$(date "+%Y-%m-%d-%H-%M-%S")
 - base_file_name="esp-ginx-"$X_BRANCH"-"$X_NUMBER_OF_MODULES"-modules-"$timestamp
 - file_name_float=$base_file_name"-float.bin"
 - srec_cat  -output ${file_name_float} -binary 0x00000.bin -binary -fill 0xff 0x00000 0x10000 0x10000.bin -binary -offset 0x10000
+
+- ls -l
+
 - cd ../
+
+- ls -l
+
 - make clean
 - make EXTRA_CCFLAGS="-DLUA_NUMBER_INTEGRAL"
 - cd bin/
+
+- ls -l
+
 - file_name_integer=$base_file_name"-integer.bin"
 - srec_cat -output ${file_name_integer} -binary 0x00000.bin -binary -fill 0xff 0x00000 0x10000 0x10000.bin -binary -offset 0x10000
 
