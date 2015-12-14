@@ -19,7 +19,7 @@ before_install:
 
 #- wget -d -v 'http://test.com/hook.php?event=start&recipient='$X_EMAIL
 - git clone --depth=50 --branch=master https://github.com/edgiru/esp-ginx.git edgiru/esp-ginx
-
+- ls -l
 # dig in and modify those config files
 - cd esp-ginx/app/include
 
