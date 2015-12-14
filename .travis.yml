@@ -52,7 +52,7 @@ install:
 #- ls -l
 #- tar -zxvf esp-open-sdk.tar.gz
 #- ls -l
-#- export PATH=$PATH:$PWD/edgiru/esp-ginx/tools/esp-open-sdk/sdk:$PWD/edgiru/esp-ginx/tools/esp-open-sdk/xtensa-lx106-elf/bin
+- export PATH=$PATH:$PWD/edgiru/esp-open-sdk/sdk:$PWD/edgiru/esp-open-sdk/xtensa-lx106-elf/bin
 script:
 - cd edgiru/esp-ginx
 - ls -altr
