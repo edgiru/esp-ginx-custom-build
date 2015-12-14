@@ -54,7 +54,7 @@ install:
 #- ls -l /edgiru/esp-open-sdk/xtensa-lx106-elf/bin
 - ls -l
 #- ls -l /edgiru/esp-open-sdk/xtensa-lx106-elf
-- export PATH=$PATH:$PWD/edgiru/esp-open-sdk/sdk:$PWD/edgiru/esp-open-sdk/xtensa-lx106-elf/bin
+- export PATH=$PATH:$PWD/esp-open-sdk/sdk:$PWD/esp-open-sdk/xtensa-lx106-elf/bin
 script:
 - cd edgiru/esp-ginx
 - ls -altr
