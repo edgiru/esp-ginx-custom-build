@@ -43,12 +43,15 @@ before_install:
 
 - ls -l
 
+install:
+- cd edgiru/esp-ginx/tools
+- wget https://github.com/nodemcu/nodemcu-firmware/blob/master/tools/esp-open-sdk.tar.gz
+- tar -zxvf tools/esp-open-sdk.tar.gz
+- ls -l
+- export PATH=$PATH:$PWD/edgiru/esp-ginx/tools/esp-open-sdk/sdk:$PWD/edgiru/esp-ginx/tools/esp-open-sdk/xtensa-lx106-elf/bin
+script:
 - cd edgiru/esp-ginx
 - ls -altr
-install:
-- tar -zxvf tools/esp-open-sdk.tar.gz
-- export PATH=$PATH:$PWD/esp-open-sdk/sdk:$PWD/esp-open-sdk/xtensa-lx106-elf/bin
-script:
 - make all
 
 - ls -l
