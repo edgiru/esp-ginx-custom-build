@@ -41,21 +41,17 @@ before_install:
 - cd $TRAVIS_BUILD_DIR
 - ls -l
 install:
-- git clone https://github.com/pfalcon/esp-open-sdk.git
-- cd esp-open-sdk
-- make STANDALONE=y
-#- ls -l
-#- wget https://github.com/nodemcu/nodemcu-firmware/blob/master/tools/esp-open-sdk.tar.gz
-#- ls -l
-#- tar -zxvf esp-open-sdk.tar.gz
-#- ls -l /edgiru/esp-open-sdk/xtensa-lx106-elf/bin
+- wget https://github.com/nodemcu/nodemcu-firmware/blob/master/tools/esp-open-sdk.tar.gz?raw=true
 - ls -l
-#- ls -l /edgiru/esp-open-sdk/xtensa-lx106-elf
+- tar -zxvf esp-open-sdk.tar.gz
+- ls -l /edgiru/esp-open-sdk/xtensa-lx106-elf/bin
+- ls -l
+- ls -l /edgiru/esp-open-sdk/xtensa-lx106-elf
 #########################
-- wget -O lib/libc.a https://github.com/esp8266/esp8266-wiki/raw/master/libs/libc.a
-- wget -O lib/libhal.a https://github.com/esp8266/esp8266-wiki/raw/master/libs/libhal.a
-- wget -O include.tgz https://github.com/esp8266/esp8266-wiki/raw/master/include.tgz
-- tar -xvzf include.tgz && rm include.tgz
+#- wget -O lib/libc.a https://github.com/esp8266/esp8266-wiki/raw/master/libs/libc.a
+#- wget -O lib/libhal.a https://github.com/esp8266/esp8266-wiki/raw/master/libs/libhal.a
+#- wget -O include.tgz https://github.com/esp8266/esp8266-wiki/raw/master/include.tgz
+#- tar -xvzf include.tgz && rm include.tgz
 #########################
 - export PATH=$PATH:$PWDesp-open-sdk/sdk:$PWDesp-open-sdk/xtensa-lx106-elf/bin
 script:
