@@ -42,16 +42,23 @@ before_install:
 - ls -l
 install:
 - git clone --depth=50 --branch=master https://github.com/pfalcon/esp-open-sdk.git esp-open-sdk
-#- cd edgiru/esp-ginx/tools
-- ls -l
+- cd esp-open-sdk
+#- ls -l
 #- wget https://github.com/nodemcu/nodemcu-firmware/blob/master/tools/esp-open-sdk.tar.gz
 #- ls -l
 #- tar -zxvf esp-open-sdk.tar.gz
 #- ls -l /edgiru/esp-open-sdk/xtensa-lx106-elf/bin
 - ls -l
 #- ls -l /edgiru/esp-open-sdk/xtensa-lx106-elf
-- export PATH=$PATH:$PWD/esp-open-sdk/sdk:$PWD/esp-open-sdk/xtensa-lx106-elf/bin
+#########################
+wget -O lib/libc.a https://github.com/esp8266/esp8266-wiki/raw/master/libs/libc.a
+wget -O lib/libhal.a https://github.com/esp8266/esp8266-wiki/raw/master/libs/libhal.a
+wget -O include.tgz https://github.com/esp8266/esp8266-wiki/raw/master/include.tgz
+tar -xvzf include.tgz && rm include.tgz
+#########################
+- export PATH=$PATH:$PWDesp-open-sdk/sdk:$PWDesp-open-sdk/xtensa-lx106-elf/bin
 script:
+-cd ..
 - cd esp-ginx
 - ls -altr
 - make all
