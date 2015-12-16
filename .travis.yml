@@ -58,7 +58,7 @@ install:
 #########################
 - export PATH=$PATH:$PWDesp-open-sdk/sdk:$PWDesp-open-sdk/xtensa-lx106-elf/bin
 script:
--cd ..
+- cd ..
 - cd esp-ginx
 - ls -altr
 - make all
