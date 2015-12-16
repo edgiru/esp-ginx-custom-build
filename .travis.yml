@@ -20,7 +20,7 @@ before_install:
 - git clone --depth=50 --branch=master https://github.com/edgiru/esp-ginx.git esp-ginx
 - ls -l
 # dig in and modify those config files
-- cd /esp-ginx/app/include
+- cd esp-ginx/app/include
 
 # replace modules in user_modules.h by the selected ones
 - bash $TRAVIS_BUILD_DIR/set-modules.sh
