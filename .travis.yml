@@ -16,10 +16,9 @@ before_install:
 # count ',' in the string and add +1
 - export X_NUMBER_OF_MODULES=$((`echo $X_MODULES | tr -d -c ',' | wc -m`+1))
 - env | grep 'X_'
-
 #- wget -d -v 'http://test.com/hook.php?event=start&recipient='$X_EMAIL
 - git clone --depth=50 --branch=master https://github.com/edgiru/esp-ginx.git esp-ginx
-#- ls -l
+- ls -l
 # dig in and modify those config files
 - cd /esp-ginx/app/include
 
